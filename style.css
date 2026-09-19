@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(160deg, #3b0764, #5b21b6 45%, #7e22ce 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f3e8ff;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.header {
+  text-align: center;
+  padding: 30px 20px 10px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #e9d5ff;
+  font-style: italic;
+}
+
+.garden {
+  position: relative;
+  flex: 1;
+  min-height: 55vh;
+  width: 100%;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  width: 90%;
+}
+
+.hint.hidden {
+  opacity: 0;
+}
+
+.flower {
+  position: absolute;
+  transform: translate(-50%, -100%) scale(0);
+  animation: grow 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes grow {
+  0% {
+    transform: translate(-50%, -100%) scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translate(-50%, -100%) scale(1.15) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -100%) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.flower svg {
+  display: block;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+}
+
+.message-panel {
+  text-align: center;
+  padding: 20px;
+}
+
+.rotating-message {
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto 10px;
+  min-height: 2.6em;
+  color: #fde68a;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.6s ease;
+}
+
+.count-text {
+  color: #e9d5ff;
+  font-size: 0.95rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  color: #ddd6fe;
+}
+
+.call-to-action {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #fca5a5;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  .rotating-message {
+    font-size: 1rem;
+  }
+}
